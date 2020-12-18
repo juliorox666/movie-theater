@@ -4,19 +4,23 @@ import AppHeader from 'components/AppHeader';
 import AppContent from 'components/AppContent';
 import Home from 'pages/Home';
 import Details from 'pages/Details';
+// styles
+import { useStyles } from './styles';
 
-const Content: React.FC = () => {
+const AppLayout: React.FC = () => {
+  const classes = useStyles();
+
   return (
-    <div className="appcontent">
+    <div className={classes.applayout}>
       <AppHeader />
       <AppContent>
         <Switch>
           <Route exact path={`/`} component={Home} />
-          <Route exact path={`/:id`} component={Details} />
+          <Route path={`/:id`} component={Details} />
         </Switch>
       </AppContent>
     </div>
   );
 };
 
-export default Content;
+export default AppLayout;

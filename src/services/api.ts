@@ -2,6 +2,9 @@ import axios, { Canceler } from 'axios';
 
 let cancel: Canceler | null;
 
+const apiKey = process.env.REACT_APP_API_KEY || '';
+const imgUrl = process.env.REACT_APP_API_IMG_URL || '';
+
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
 });
@@ -42,4 +45,4 @@ api.interceptors.response.use(
   },
 );
 
-export { api, cancel };
+export { api, cancel, apiKey, imgUrl };

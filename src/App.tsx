@@ -2,8 +2,9 @@ import React from 'react';
 import { theme } from 'theme/index';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { MovieProvider } from 'context/movieContext';
 import { BrowserRouter } from 'react-router-dom';
-import Content from 'containers/Content';
+import AppLayout from 'containers/AppLayout';
 import './App.css';
 
 function App(): JSX.Element {
@@ -12,7 +13,9 @@ function App(): JSX.Element {
       <BrowserRouter>
         <CssBaseline />
         <ThemeProvider theme={theme}>
-          <Content /> {/* <== All Routes here */}
+          <MovieProvider>
+            <AppLayout /> {/* <== all routes here */}
+          </MovieProvider>
         </ThemeProvider>
       </BrowserRouter>
     </div>
