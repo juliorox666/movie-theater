@@ -3,11 +3,8 @@ import { Typography, Card, CardContent, CardMedia, Button } from '@material-ui/c
 import { useParams } from 'react-router-dom';
 import { imgUrl } from 'services/api';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
-import Skeleton from '@material-ui/lab/Skeleton';
 // services
 import { findMovie } from 'utils/requests';
-// context
-import { useMovieContext } from 'context/movieContext';
 // styles
 import { useStyles } from './styles';
 import { ResponseFindMovieModel } from 'models/movie.discover';
@@ -30,9 +27,7 @@ const Details: React.FC = () => {
 
     try {
       loadData();
-    } catch (error) {
-      console.error(error);
-    }
+    } catch (error) {}
   }, [id]);
 
   return (
